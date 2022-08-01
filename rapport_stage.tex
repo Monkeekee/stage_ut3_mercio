@@ -1,0 +1,98 @@
+\documentclass{rapportCS}
+\title{Rapport UT3 - Mercio} %Thanks for Rapport CentraleSupelec - Template, By Axel Poupart-Lafarge
+\begin{document}
+
+%----------- Informations du rapport ---------
+
+\logoentreprise{images/Black_Full_Small.png}
+
+\titre{Rapport du stage de fin d'étude} % Titre du fichier
+
+\mention{Mention Données et Connaissances } % Nom de la Mention
+\trigrammemention{M2-DC} % Pour le bas de la page
+\master{Master d'Informatique} % Nom du master
+\filiere{Promotion 2021-2022} % Nom de la filière
+
+\eleve{Matthieu Akhavan}
+
+\dates{11/04/2022 - 30/09/2022}
+
+% Informations tuteurs écoles
+\tuteurecole{
+    Mention : \textsc{Chloé BRAUD} \\
+    chloe.braud@irit.fr \\
+} 
+
+\tuteurentreprise{
+    \textsc{Guillaume HALB} \\
+    guillaume.halb@mercio.io \\
+		\textsc{Yoan Ozanneaux} \\
+    yoann.ozanneaux@mercio.io
+}
+
+%----------- Initialisation -------------------
+        
+\fairemarges %Afficher les marges
+\fairepagedegarde %Creer la page de garde
+
+%----------- Abstract -------------------
+\vspace*{\stretch{1}}
+\begin{center}
+	\begin{abstract}
+A COMPLETER + PAREIL EN ANGLAIS \\
+        
+Ceci est le rapport de mon stage de 5 mois et deux semaines  dans l'entreprise Mercio, à Paris. C'est jusqu'à ce jour l'expérience professionnelle la plus complète que j'ai jamais eue au cours de mes études en informatique. \\
+Mon sujet tourne autour d'une problématique qui allie des enjeux big data et intelligence artificielle, mais aussi développement logiciel pour l'implémentation de la solution.
+    \end{abstract}
+\end{center}
+\vspace*{\stretch{1}}
+\newpage
+
+%------------ Table des matières ----------------
+
+\tabledematieres % Créer la table de matières
+
+%------------ Corps du rapport ----------------
+
+
+%------------ Introduction ----------------
+
+\section{Introduction} 
+
+\subsection{Introduction générale}
+	Mercio, de raison sociale HereForRetail, est une société dans le secteur du retail. C'est à dire que ses clients sont les maillons finaux de la chaîne de la grande distribution française, qui vendent des produits en rayons, que ce soit dans l'alimentaire, le bricolage, ou les jouets. Mercio propose à ses clients un logiciel web qui leur permet d'ajuster leurs prix en rayon selon les stratégies définies en interne. Les stratégies s'expriment alors sous forme d'un ensemble de règles de prix configurables sur l'application Mercio Pricing, dont toutes les données sont emmagasinées dans le nuage. Les règles que ces clients peuvent appliquer à leurs produits ont des priorités entre elles selon la stratégie de l'enseigne et sont paramétrables en profondeur : il y a la très connue règle d'arrondi (prix qui fini par 99 centimes par exemple), l'alignement par rapport à la concurrence, et bien d'autres. \\
+	Avec les milliers de magasins que certains clients ont sur le territoire français et les milliers de produits vendus en magasins, le nombre de prix à traiter pour les plus gros clients va jusqu'à plusieurs dizaines de millions de prix. Le fait que la plateforme est capable de traiter autant de prix en peu de temps (une dizaine de minutes la plupart du temps) place Mercio en qualité d'entreprise Big Data dans le vaste secteur de la tech.\\
+	Au fil des avancées dans le domaine lucratif des sciences des données, de plus en plus d'entreprises proclament utiliser des techniques d'intelligence artificielle pour obtenir des performances calculatoires jamais égalées par le passé, et ce avec des technologies de plus en plus à la pointe dans leur domaine. Mercio n'est pas en reste, et c'est ainsi que j'ai répondu à leur appel d'offre pour résoudre un challenge de data science en tant que développeur stagiaire en fin de Bac+5 informatique.\\
+	Mon sujet au sein de l'entreprise est de développer une solution algorithmique et logicielle pour faire une suggestion de correspondance entre chaque produit donné d'une enseigne client et le produit jugé le plus similaire possible chez chaque concurrent dont le client met à disposition les données. Ce sujet, ses enjeux pour l'entreprise mais aussi pour moi en tant qu'apprenti, seront bien plus développés dans les parties suivantes.\\
+	Cependant, avant de parler en profondeur du sujet, prendre connaissances des descriptions qui suivent sont capitales pour comprendre la place que j'ai en tant que stagiaire dans cette entreprise de 21 employés, stagiaires compris (au moment ou je rédige cette introduction) car la dimension économique mais également le plan technologique dans lesquels se situe Mercio influencent grandement sa structure et ses cycles de production. Tout autant sa manière de fonctionner que les solutions technologiques choisies, rien n'est laissé au hasard, mais bel et bien conçu pour répondre à des besoins fonctionnels spécifiques et à des moments clés du cycle de vie de l'entreprise.
+\subsection{Modèle économique et structurel}
+	La licence du logiciel de pricing est vendue à l'année et tous les différents modules de l'application ne sont pas fournis à tous les clients, et de façon différentes. En effet, certains clients ne sont intéressés que par certains modules. Ces clients peuvent aussi négocier des modifications, voire fonctionnalités supplémentaires qui sont facturées en fonction de la masse de travail requise pour ce faire. Ce mode de fonctionnement est appelé B2B pour « Business to Business » en opposition au B2C « Business to Customer ». \\
+	Les développeurs, qui représentent le plus gros des employés de Mercio, sont scindés en deux équipes : l'équipe projet qui traite avec les clients directement et appliquent des correctifs et changements selon leurs besoins, et l'équipe produit qui développe les fonctionnalités standard sur le long-terme. Je travaille actuellement sur mon sujet dans l'équipe produit, qui s'apparente d'avantage au secteur recherche et développement de beaucoup d'entreprises. Nous reviendrons dessus plus tard. \\
+Les enseignes de retail avec qui échangent les commerciaux de l'entreprise ne sont pas exclusivement des enseignes françaises mais aussi européennes, notamment en Allemagne. Mercio Pricing est reconnu par beaucoup d'acteurs économiques clés du retail comme une solide solution de pricing. Le pricing est le fait d'attribuer un prix à un produit selon ses besoins stratégiques de vente. Cette solution logicielle se positionne bien sur le marché en terme de qualité de recommandation de prix et de quantité de données traitées par jour, avec des atouts stratégiques comme le géo-pricing, une méthode de pricing qui prend en compte la concurrence locale de chaque magasin de l'enseigne client de Mercio. \\
+
+
+\subsection{Structure de l'application}
+
+L 'application Mercio Pricing est une solution web, accessible par les clients dans les horaires prévues à cet effet en semaine. La solution d'un client est déployée sur un serveur distant et accessible par identifiants et mots de passe sécurisés.\\
+Une fois connecté, le client a accès au service de pricing grâce aux données qu'il fourni sur son site de stockage Microsoft Azure dédié.\\
+Pour synthétiser, l'application qu'utilisent les clients est divisée en deux partie : la première est la solution standard qui est le cœur de l'application, nommée activepricing ou appelé la plupart du temps le produit. Les travaux autour du produit rassemblent le gros des avancées qui sont faîtes pour améliorer le service accordé à tous les clients de manière générale.\\
+La seconde partie est le starter, qui comme son nom l'indique, sert à démarrer un projet par dessus le produit. Il est la partie personnalisable par les projets et doit être mise à jour suivant les changements majeurs apportés par les nouveautés du produit. Il arrive parfois que des changements du produit apportent des inconvénients au niveau de projets pour des raisons techniques ou simplement par la spécifications des données des clients, mais je reviendrai dessus plus tard.\\
+Le produit consiste en une vue codé en React Typescript et trois unités interdépendantes codées en Java Spring Boot : le serveur, l'édition et le pricer. Je ne parlerai que de l'édition  coté serveur et de la vue car la partie développement logiciel de mon stage ne touche qu'à ces composantes.\\
+\subsection{ L'équipe produit }
+	Les experts des prix qui utilisent la plateforme de pricing de Mercio chez les clients sont appelés pricers. Fournir aux pricers des outils adaptés à leurs besoins est le nerf de la guerre pour Mercio, qui cherche à gagner des nouveaux clients européens tout en standardisant de plus en plus ses nouveaux contrats tout comme ses anciens. L'objectif est de réduire le plus possible le temps passé à répondre à des besoins spécifiques à travers les progrès réalisés sur le produit.\\
+	L'équipe produit est composé de 7 personnes incluant :\\
+	
+\begin{itemize}
+\item{Le manager de l'équipe produit Yoann Ozanneaux et tuteur officiel pour les stages.}
+\item{Mon tuteur d'entreprise Guillaume Halb, responsable de mes travaux au sein de l'équipe.}
+\item{Des développeurs qui ont de plusieurs mois à 4 ans d'ancienneté.}
+\item{Les deux stagiaires dont je fais partie.}
+\end{itemize}
+
+\subsection{L'équipe projet}
+L'équipe projet s'occupe des solutions mises en œuvre pour les différents clients. Chaque projet ayant ses propres spécificités, ils sont attribués à un ou plusieurs membres de l'équipe en fonction de la nature et de la charge que constituent les demandes du client pour des améliorations et du support. Un projet doit aussi participer à la formation du client à l'utilisation de la plateforme de pricing, anticiper ses demandes, faire respecter les exigences sur les données que le client fourni à l'entreprise, pré-traiter certaines données, etc.
+
+
+
+
+\end{document}
