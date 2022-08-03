@@ -3,14 +3,14 @@
 %--------------------- Packages ------------------------
 
 \RequirePackage[french]{babel} %Langue du document
-\RequirePackage[utf8]{inputenc} %Caractères spéciaux
+\RequirePackage[utf8]{inputenc} %Caractï¿½res spï¿½ciaux
 \RequirePackage[section]{placeins}%Pour placement de section
 \RequirePackage[T1]{fontenc} %Quelques lettres qui sont pas inclus dans UTF-8
-\RequirePackage{mathtools} %Paquet pour des équations et symboles mathématiques
-\RequirePackage{siunitx} %Pour écrire avec la notation scientifique (Ex.: \num{2e+9})
+\RequirePackage{mathtools} %Paquet pour des ï¿½quations et symboles mathï¿½matiques
+\RequirePackage{siunitx} %Pour ï¿½crire avec la notation scientifique (Ex.: \num{2e+9})
 \RequirePackage{float} %Pour placement d'images
-\RequirePackage{graphicx} %Paquet pour insérer des images
-\RequirePackage[justification=centering]{caption} %Pour les légendes centralisées
+\RequirePackage{graphicx} %Paquet pour insï¿½rer des images
+\RequirePackage[justification=centering]{caption} %Pour les lï¿½gendes centralisï¿½es
 \RequirePackage{subcaption}
 \RequirePackage{wallpaper}
 \RequirePackage{nomencl}
@@ -20,7 +20,7 @@
 %\fancyheadoffset{1cm}
 %\setlength{\headheight}{2cm}
 \RequirePackage{url}
-\RequirePackage[hidelinks]{hyperref}%Paquet pour insérer légendes dans des sous-figures comme Figure 1a, 1b
+\RequirePackage[hidelinks]{hyperref}%Paquet pour insï¿½rer lï¿½gendes dans des sous-figures comme Figure 1a, 1b
 \RequirePackage[left=3cm,right=3cm,top=3cm,bottom=5cm]{geometry} %Configuration de la page
 
 
@@ -32,6 +32,7 @@
 \newcommand{\filiere}[1]{\renewcommand{\filiere}{#1}}
 
 \newcommand{\titre}[1]{\renewcommand{\titre}{#1}}
+\newcommand{\sujet}[1]{\renewcommand{\sujet}{#1}}
 
 \newcommand{\eleve}[1]{\renewcommand{\eleve}{#1}}
 
@@ -50,7 +51,7 @@
 \lhead{\includegraphics[scale=0.13]{images/Logo_UT3.jpg} } %Affichage de l'image au top de la page
 \rhead{\nouppercase{\leftmark}}
 \rfoot{\thepage}
-\cfoot{\textbf{\titre}}
+\cfoot{\textbf{Stage :\sujet{}}}
 \lfoot{\trigrammemention}
 
 }
@@ -78,13 +79,14 @@
 % Titre du rapport
 \rule{\linewidth}{0.2 mm} \\[0.4 cm]
 {\huge\bfseries \titre \par}
+{\huge\bfseries Sujet :\sujet \par}
 \rule{\linewidth}{0.2 mm} \\[1.0 cm]
 
-% Nom de l'étudiant
+% Nom de l'ï¿½tudiant
 {\scshape\LARGE \eleve \par} 
 \vspace{1.0cm}
 
-% Parcours de l'étudiant
+% Parcours de l'ï¿½tudiant
 {\scshape \mention \\ \filiere \\ \master \par} 
 \vspace{1cm}
 
@@ -93,7 +95,7 @@
 
 \vspace{5cm}
 
-% Représentants de l'étudiant
+% Reprï¿½sentants de l'ï¿½tudiant
 \begin{minipage}{0.4\textwidth}
 	\begin{flushleft} 
 	\emph{\textbf{Tuteur Universitaire :}}\\ 
