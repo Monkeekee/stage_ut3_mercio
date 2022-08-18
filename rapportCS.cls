@@ -14,13 +14,14 @@
 \RequirePackage{subcaption}
 \RequirePackage{wallpaper}
 \RequirePackage{nomencl}
+\RequirePackage{hyperref}
 %\makenomenclature
 \RequirePackage{fancyhdr}
 %\pagestyle{fancy}
 %\fancyheadoffset{1cm}
 %\setlength{\headheight}{2cm}
 \RequirePackage{url}
-\RequirePackage[hidelinks]{hyperref}%Paquet pour ins�rer l�gendes dans des sous-figures comme Figure 1a, 1b
+%\RequirePackage[hidelinks]{hyperref}%Paquet pour ins�rer l�gendes dans des sous-figures comme Figure 1a, 1b
 \RequirePackage[left=3cm,right=3cm,top=3cm,bottom=5cm]{geometry} %Configuration de la page
 
 
@@ -31,7 +32,6 @@
 \newcommand{\master}[1]{\renewcommand{\master}{#1}}
 \newcommand{\filiere}[1]{\renewcommand{\filiere}{#1}}
 
-\newcommand{\titre}[1]{\renewcommand{\titre}{#1}}
 \newcommand{\sujet}[1]{\renewcommand{\sujet}{#1}}
 
 \newcommand{\eleve}[1]{\renewcommand{\eleve}{#1}}
@@ -51,7 +51,7 @@
 \lhead{\includegraphics[scale=0.13]{images/Logo_UT3.jpg} } %Affichage de l'image au top de la page
 \rhead{\nouppercase{\leftmark}}
 \rfoot{\thepage}
-\cfoot{\textbf{Stage :\sujet{}}}
+\cfoot{\textbf{Stage : \sujet{}}}
 \lfoot{\trigrammemention}
 
 }
@@ -78,8 +78,7 @@
 
 % Titre du rapport
 \rule{\linewidth}{0.2 mm} \\[0.4 cm]
-{\huge\bfseries \titre \par}
-{\huge\bfseries Sujet :\sujet \par}
+{\huge\bfseries \sujet \par}
 \rule{\linewidth}{0.2 mm} \\[1.0 cm]
 
 % Nom de l'�tudiant
